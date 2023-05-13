@@ -33,6 +33,9 @@ import {SafeUrlPipe} from './common/safe-url.pipe';
 import {MessagesComponent} from './messages/messages.component';
 import {SearchLessonsComponent} from './search-lessons/search-lessons.component';
 import { LoadingComponent } from './loading/loading.component';
+import {CommonModule} from "@angular/common";
+import {RouterModule} from "@angular/router";
+import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
 
 @NgModule({
   declarations: [
@@ -46,10 +49,12 @@ import { LoadingComponent } from './loading/loading.component';
     SafeUrlPipe,
     MessagesComponent,
     SearchLessonsComponent,
-    LoadingComponent
+    LoadingComponent,
+    CoursesCardListComponent
 
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -67,6 +72,7 @@ import { LoadingComponent } from './loading/loading.component';
     MatSortModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    CommonModule,
     AppRoutingModule,
     MatSelectModule,
     MatDatepickerModule,
@@ -76,6 +82,7 @@ import { LoadingComponent } from './loading/loading.component';
   providers: [
   ],
   bootstrap: [AppComponent],
+  // @ts-ignore
   entryComponents: [CourseDialogComponent]
 })
 export class AppModule {
