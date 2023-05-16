@@ -22,7 +22,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadCourses();
+  }
 
+  public loadCourses() {
     const courses$: Observable<Course[]> = this.courseService.loadAllCourses()
       .pipe(
         map(
