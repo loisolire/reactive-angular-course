@@ -3,6 +3,7 @@ import {Course, sortCoursesBySeqNo} from '../model/course';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {CourseService} from "../services/course.service";
+import {LoadingService} from "../loading/loading.service";
 
 
 @Component({
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   advancedCourses$: Observable<Course[]>;
 
 
-  constructor(readonly courseService: CourseService) {
+  constructor(readonly courseService: CourseService, readonly loadingService: LoadingService) {
 
   }
 
