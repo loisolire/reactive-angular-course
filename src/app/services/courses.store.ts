@@ -5,6 +5,7 @@ import {Course, sortCoursesBySeqNo} from "../model/course";
 import {MessagesService} from "../messages/messages.service";
 import {LoadingService} from "../loading/loading.service";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {LogService} from "./log.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class CoursesStore {
   courses$: Observable<Course[]> = this.subject.asObservable();
 
 
-  constructor(private messagesService: MessagesService, private loadingService: LoadingService, private http: HttpClient) {
+  constructor(private log: LogService, private messagesService: MessagesService, private loadingService: LoadingService, private http: HttpClient) {
     this.loadAllCourses();
   }
 
@@ -24,7 +25,7 @@ export class CoursesStore {
         map(courses => courses['payload']),
         catchError((err: HttpErrorResponse) => {
           const message = 'Could not load courses !';
-          console.log(message, err);
+          this.log.log(message, err.message);
           this.messagesService.showErrors(message);
           return throwError(err);
         }),
