@@ -36,6 +36,8 @@ import { LoadingComponent } from './loading/loading.component';
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
+import {LoadingService} from "./loading/loading.service";
+import {MessagesService} from "./messages/messages.service";
 
 @NgModule({
   declarations: [
@@ -80,6 +82,8 @@ import { CoursesCardListComponent } from './courses-card-list/courses-card-list.
     ReactiveFormsModule
   ],
   providers: [
+    LoadingService,
+    MessagesService
   ],
   bootstrap: [AppComponent],
   // @ts-ignore
