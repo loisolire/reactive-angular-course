@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Course} from '../model/course';
 import {Observable} from 'rxjs';
 import {CoursesStore} from "../services/courses.store";
+import {AuthStore} from "../services/auth.store";
 
 
 @Component({
